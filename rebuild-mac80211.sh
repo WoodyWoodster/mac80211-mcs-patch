@@ -21,6 +21,7 @@ fi
 
 # Get kernel source version from headers
 KVER_BASE="${KVER%%-*}"  # e.g. 6.19.8
+KVER_BASE="${KVER_BASE%.0}"  # e.g. 6.17.0 -> 6.17
 MAJOR="${KVER_BASE%%.*}" # e.g. 6
 
 echo "mac80211-patch: downloading kernel $KVER_BASE source..."
