@@ -2,6 +2,8 @@
 
 Kernel patch that fixes WiFi stuck at 54 Mbps when your card has fewer spatial streams than the AP's basic MCS set requires.
 
+**Update:** Kernel version 7.0.13 and above already fixed this problem. See [this commit](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=002868623c9ad77f736f1b026ec793cb2c054d25) for details.
+
 ## The Problem
 
 Some access points (e.g. Xfinity XB8, other 4x4 MIMO routers) include 3 or 4 spatial stream MCS indexes in their basic HT-MCS set. Linux's `mac80211` checks if your card supports **all** basic MCS rates — if it doesn't (e.g. a 2x2 card like MediaTek MT7922), HT is disabled entirely and you're stuck at 802.11a/g rates (54 Mbps max).
